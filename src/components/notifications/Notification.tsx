@@ -8,7 +8,7 @@ import { type Menu } from "../navigation/NavBar";
 const Notification = () => {
   const user = useSession();
   const userId = user.data?.user?.id;
-  const [dropDown, displayDropDown] = useState<Menu>('open');
+  const [dropDown, displayDropDown] = useState<Menu>('closed');
   const notificationsInvites = api.notificationsApi.getUserNotifications.useQuery();
 
   return <>
@@ -38,7 +38,6 @@ const NotificationsDropDown = ({ isOpen, roomNotifications }: { isOpen: Menu, ro
 }
 
 const RoomNotifications = ({ roomNotifications }: { roomNotifications: UseQueryResult }) => {
-  console.log(roomNotifications.data)
   if (!roomNotifications.isLoading) {
     return <div className="w-full">
       {
@@ -49,7 +48,7 @@ const RoomNotifications = ({ roomNotifications }: { roomNotifications: UseQueryR
             }
             </p>
             <div className="flex gap-3">
-              <button className="bg-green-400 p-2 rounded-md border border-green-900">Join room</button>
+              <a className="bg-green-400 p-2 rounded-md border border-green-900" href={ `/rooms/${ e.room.roomId }` }>Join room</a>
               <button className="bg-red-400 border border-red-900 p-2 rounded-md">Remove</button>
             </div>
             <div className="text-white font-bold bg-gray-400  p-1 rounded-md mt-2 flex items-end w-full">
