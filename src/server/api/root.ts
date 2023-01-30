@@ -2,7 +2,7 @@ import { createTRPCRouter } from "./trpc";
 import { usersApi } from "./routers/users_search";
 import { createRoomApi } from "./routers/rooms/create-room-api";
 import { notifications } from "./routers/notification_service/notifications_api";
-import { rooms } from "./routers/rooms/rooms";
+import { rooms, roomsSubscribtions } from "./routers/rooms/rooms";
 
 /**
  * This is the primary router for your server.
@@ -14,6 +14,7 @@ export const appRouter = createTRPCRouter({
   createRoom:createRoomApi,
   notificationsApi:notifications,
   rooms,
+  roomsSubscribtions
 });
 
 // export type definition of API
