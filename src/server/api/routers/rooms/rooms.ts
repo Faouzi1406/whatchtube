@@ -33,35 +33,3 @@ export const rooms = createTRPCRouter({
       }
     })
 });
-
-export const roomsSubscribtions = createTRPCRouter({
-  roomSub:  protectedProcedure
-  .input(z.object!({ roomId:z.string() }))
-  .subscription(async ({ input, ctx }) => {
-    const rooms = new Rooms();
-    const roomExists = rooms.getRoom(input.roomId);
-
-    const roomDbCheck = await ctx.prisma.room.count({
-      where: {
-        roomId: input.roomId
-      }
-    });
-
-    if(roomDbCheck == 0){
-      throw new TRPCError(roomNotFound);
-    };
-
-    if (roomExists == "room not found"){
-      rooms.addRoom({
-        roomId:input.roomId,
-        users: [],
-        owner: ctx.session.user,
-        messages: []
-      });
-    };
-
-    console.log(rooms.rooms);
-
-    return rooms.rooms;
-  }), 
-});
