@@ -25,5 +25,10 @@ export class Rooms {
   appendMessage(room:ROOM, message:String, user:User){
     let indexId = this.rooms.indexOf(room);
     this.rooms[indexId]?.messages.push({user, message});
+  } 
+  
+  appendUsers(room:ROOM, user:User){
+    let indexId = this.rooms.indexOf(room);
+    this.rooms[indexId]?.users.push(user);
   }
 }
