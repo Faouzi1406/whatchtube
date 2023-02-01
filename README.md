@@ -1,1 +1,1 @@
-# Some people write stuff here (working on this)
+# A way to watch videos together (work in progress)
