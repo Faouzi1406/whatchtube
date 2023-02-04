@@ -1,13 +1,6 @@
 import { TRPCError } from "@trpc/server";
-import { number, z } from "zod";
+import {  z } from "zod";
 import { createTRPCRouter, protectedProcedure } from "../../trpc";
-import { initTRPC } from '@trpc/server';
-import { observable } from '@trpc/server/observable';
-import { EventEmitter } from 'events';
-import { Rooms } from "../../../../classes/rooms";
-import { redirect } from "next/dist/server/api-utils";
-
-const ee = new EventEmitter();
 
 const roomNotFound: TRPCError = {
   name: 'Room-Not-Found',

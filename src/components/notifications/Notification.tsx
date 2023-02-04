@@ -27,7 +27,7 @@ const Notification = () => {
 
 const NotificationsDropDown = ({ isOpen, roomNotifications }: { isOpen: Menu, roomNotifications: UseQueryResult }) => {
   if (isOpen == 'open') {
-    return <div className="absolute bg-secondary p-2 rounded-md flex items-start top-2 right-3 w-96 flex-col border shadow-md">
+    return <div className="absolute bg-secondary p-2 rounded-md flex items-start top-2 right-3 w-96 flex-col border shadow-md z-50">
       <p className="font-bold">All your notifications!</p>
       <RoomNotifications roomNotifications={roomNotifications} /> 
     </div>

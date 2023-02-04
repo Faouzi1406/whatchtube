@@ -46,7 +46,7 @@ const DropDown = () => {
 
 export const DropDownMenu = ({ isOpen, userName, userImage }: { isOpen: Menu, userName: String, userImage: string }) => {
   if (isOpen == "open") {
-    return <div className="absolute flex right-3 mt-1 shadow-md">
+    return <div className="absolute flex right-3 mt-1 shadow-md z-50">
       <div className="justify-start bg-secondary text-white rounded-md p-2 w-60">
         <div className="flex items-center gap-2">
           <Image
